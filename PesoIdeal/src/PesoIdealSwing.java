@@ -1,9 +1,11 @@
+
+import java.awt.event.KeyEvent;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Carlos Ricardo Medina Rojas
@@ -39,8 +41,8 @@ public class PesoIdealSwing extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        txaResultados = new javax.swing.JTextArea();
+        btnCalcular = new javax.swing.JButton();
         rbtMujer = new javax.swing.JRadioButton();
         rbtHombre = new javax.swing.JRadioButton();
 
@@ -53,17 +55,26 @@ public class PesoIdealSwing extends javax.swing.JFrame {
 
         jLabel3.setText("Apellidos");
 
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNombreKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNombreKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Edad");
 
         jLabel5.setText("Estatura");
 
         jLabel6.setText("Peso");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txaResultados.setColumns(20);
+        txaResultados.setRows(5);
+        jScrollPane1.setViewportView(txaResultados);
 
-        jButton1.setText("Calcular");
+        btnCalcular.setText("Calcular");
 
         buttonGroup1.add(rbtMujer);
         rbtMujer.setText("Mujer");
@@ -112,7 +123,7 @@ public class PesoIdealSwing extends javax.swing.JFrame {
                                                 .addGap(8, 8, 8)
                                                 .addComponent(jLabel6)))
                                         .addGap(93, 93, 93)
-                                        .addComponent(jButton1)))
+                                        .addComponent(btnCalcular)))
                                 .addGap(0, 71, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(185, 185, 185)
@@ -147,7 +158,7 @@ public class PesoIdealSwing extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEstatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))
+                            .addComponent(btnCalcular))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -159,6 +170,31 @@ public class PesoIdealSwing extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
+        int keyCode = evt.getKeyCode();
+        char myChar = KeyEvent.getKeyText(keyCode).charAt(0);
+        System.out.println("I am here");
+        if (ValidateValues.validateKeyPressed(myChar)) {
+            txtNombre.setText(txtNombre.getText() + Integer.toString(myChar));
+            txaResultados.append(Integer.toString(myChar));
+
+        }else{
+            
+        }
+            
+
+    }//GEN-LAST:event_txtNombreKeyTyped
+
+    private void txtNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyPressed
+        int keyCode = evt.getKeyCode();
+        char myChar = KeyEvent.getKeyText(keyCode).charAt(0);
+
+        if (ValidateValues.validateKeyPressed(myChar)) {
+            txtNombre.setText(txtNombre.getText() + myChar);
+
+        }
+    }//GEN-LAST:event_txtNombreKeyPressed
 
     /**
      * @param args the command line arguments
@@ -196,8 +232,8 @@ public class PesoIdealSwing extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCalcular;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -205,9 +241,9 @@ public class PesoIdealSwing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JRadioButton rbtHombre;
     private javax.swing.JRadioButton rbtMujer;
+    private javax.swing.JTextArea txaResultados;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtEstatura;
