@@ -11,12 +11,13 @@ import java.awt.event.KeyEvent;
  * @author Carlos Ricardo Medina Rojas
  */
 public class PesoIdealSwing extends javax.swing.JFrame {
-
+    private String txtNombreX="";
     /**
      * Creates new form PesoIdealSwing
      */
     public PesoIdealSwing() {
         initComponents();
+        btnCalcular.setEnabled(false);
     }
 
     /**
@@ -55,12 +56,23 @@ public class PesoIdealSwing extends javax.swing.JFrame {
 
         jLabel3.setText("Apellidos");
 
+        txtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtNombreFocusLost(evt);
+            }
+        });
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtNombreKeyPressed(evt);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNombreKeyTyped(evt);
+            }
+        });
+
+        txtApellidos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtApellidosFocusLost(evt);
             }
         });
 
@@ -173,28 +185,36 @@ public class PesoIdealSwing extends javax.swing.JFrame {
 
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         int keyCode = evt.getKeyCode();
-        char myChar = KeyEvent.getKeyText(keyCode).charAt(0);
-        System.out.println("I am here");
-        if (ValidateValues.validateKeyPressed(myChar)) {
-            txtNombre.setText(txtNombre.getText() + Integer.toString(myChar));
-            txaResultados.append(Integer.toString(myChar));
+        char myChar = evt.getKeyChar();
+        
+        if (ValidateValues.validKeyPressed(myChar)) {
+            txtNombreX = txtNombreX+myChar;
+            txtNombre.setText(txtNombreX);
+            txaResultados.append(String.valueOf(myChar)+"");
+            //txaResultados.append(String.valueOf(myChar));
+            System.out.print(myChar);
 
         }else{
-            
+            evt.consume();
+             txtNombre.setText(txtNombreX);
         }
             
 
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtNombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyPressed
-        int keyCode = evt.getKeyCode();
-        char myChar = KeyEvent.getKeyText(keyCode).charAt(0);
 
-        if (ValidateValues.validateKeyPressed(myChar)) {
-            txtNombre.setText(txtNombre.getText() + myChar);
-
-        }
     }//GEN-LAST:event_txtNombreKeyPressed
+
+    private void txtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtNombreFocusLost
+
+    }//GEN-LAST:event_txtNombreFocusLost
+
+    private void txtApellidosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtApellidosFocusLost
+        if (txtNombre.getText(). isEmpty()) {
+            
+        }
+    }//GEN-LAST:event_txtApellidosFocusLost
 
     /**
      * @param args the command line arguments

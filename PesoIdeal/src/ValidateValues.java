@@ -10,17 +10,25 @@
  */
 public class ValidateValues {
     
-    public static boolean validateKeyPressed(char myInputChar){
+    public static boolean validKeyPressed(char myInputChar){
         boolean validKey = false;
-        if ((myInputChar >=64 & myInputChar <=80) ) {
+        if ((myInputChar >='A'  & myInputChar <='Z') || (myInputChar >='a'  & myInputChar <='z') || (myInputChar==' ')) {
             validKey=true;
-        }
+        } 
         
         
         return validKey;
     }
     
-    
+    public static boolean validNumber(char myInputChar){
+        boolean validNumber = false;
+        
+        if (!(Character.isDigit(myInputChar) )) {
+            validNumber = true;
+        }
+        
+        return validNumber;
+    }
     
     
     
