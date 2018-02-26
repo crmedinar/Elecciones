@@ -24,7 +24,7 @@
             <RadioButton fx:id="rbtModificar" layoutX="177.0" layoutY="307.0" mnemonicParsing="false" onAction="#rbtModificarHandler" text="Modificar" />
             <RadioButton fx:id="rbtEliminar" layoutX="178.0" layoutY="332.0" mnemonicParsing="false" onAction="#rbtEliminarHandler" text="Eliminar" />
             <Button fx:id="btnAccion" layoutX="333.0" layoutY="303.0" mnemonicParsing="false" onAction="#btnAccionHandler" prefHeight="25.0" prefWidth="72.0" text="Button" />
-            <TextArea layoutX="14.0" layoutY="147.0" prefHeight="305.0" prefWidth="152.0" />
+            <TextArea fx:id="txaListado" layoutX="14.0" layoutY="147.0" prefHeight="305.0" prefWidth="152.0" />
          </children>
       </AnchorPane>
     </children>

@@ -36,5 +36,12 @@ public class Eleccion extends Partido {
         });
 
     }
+        public void populatePartido() {
+        partido.forEach(element -> {
+            System.out.println(element.getNombre());
+            
+        });
+
+    }
 
 }

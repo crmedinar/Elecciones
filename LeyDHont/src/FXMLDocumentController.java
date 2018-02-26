@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 /**
@@ -20,7 +21,15 @@ import javafx.scene.control.TextField;
  */
 public class FXMLDocumentController implements Initializable {
     
-     Partido partido;
+     Partido partido = new Partido("Todos Somos Pueblo ","TSP", 250000);
+     Eleccion eleccion;
+     
+    
+     
+             
+             
+             
+     
     
     @FXML
     private Label label;
@@ -40,7 +49,11 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton rbtEliminar;
     @FXML
     private Button btnAccion;
+   @FXML
+    private TextArea txaListado;
+        
     
+            
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
@@ -48,8 +61,11 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+       eleccion = new Eleccion(3500000, 20000,"ZZZ","ZZZ");
+       eleccion = new Eleccion(3500000, 250000,"STP","STP");
        
-       
+       txaListado.appendText(partido.getNombre());
+       eleccion.populatePartido();
         
         
     }    
@@ -58,6 +74,7 @@ public class FXMLDocumentController implements Initializable {
     private void rbtAgregarHandler(ActionEvent event) {
         
         partido = new Partido("Todos Somos Pueblo ","TSP", 250000);
+        
         
     }
 
