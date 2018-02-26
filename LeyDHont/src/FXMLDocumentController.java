@@ -20,6 +20,8 @@ import javafx.scene.control.TextField;
  */
 public class FXMLDocumentController implements Initializable {
     
+     Partido partido;
+    
     @FXML
     private Label label;
     @FXML
@@ -46,11 +48,17 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       
+       
+        
+        
     }    
 
     @FXML
     private void rbtAgregarHandler(ActionEvent event) {
+        
+        partido = new Partido("Todos Somos Pueblo ","TSP", 250000);
+        
     }
 
     @FXML
