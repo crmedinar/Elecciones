@@ -25,12 +25,6 @@ public class FXMLDocumentController implements Initializable {
      Eleccion eleccion;
      
     
-     
-             
-             
-             
-     
-    
     @FXML
     private Label label;
     @FXML
@@ -63,9 +57,11 @@ public class FXMLDocumentController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
        eleccion = new Eleccion(3500000, 20000,"ZZZ","ZZZ");
        eleccion = new Eleccion(3500000, 250000,"STP","STP");
+       eleccion = new Eleccion(3500000, 20000,"LLL","ZZZ");
+       eleccion = new Eleccion(3500000, 20000,"GGG","ZZZ");
        
        txaListado.appendText(partido.getNombre());
-       eleccion.populatePartido();
+       //Eleccion.populatePartido();
         
         
     }    
@@ -75,19 +71,21 @@ public class FXMLDocumentController implements Initializable {
         
         partido = new Partido("Todos Somos Pueblo ","TSP", 250000);
         
+     }
+
+    @FXML
+    private void rbtModificarHandler(ActionEvent event) {
         
     }
 
     @FXML
-    private void rbtModificarHandler(ActionEvent event) {
-    }
-
-    @FXML
     private void rbtEliminarHandler(ActionEvent event) {
+        
     }
 
     @FXML
     private void btnAccionHandler(ActionEvent event) {
+        
     }
     
 }

@@ -13,6 +13,7 @@ public class Partido {
     private String    siglas;
  //   private int         diputados;
     private int votos;
+    private int diputados;
     
     
     public Partido(String nombre, String siglas, int votos){
