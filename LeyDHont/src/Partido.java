@@ -20,7 +20,7 @@ public class Partido {
         this.nombre      = nombre;
         this.siglas          = siglas;
         this.votos = votos;
-//        this.diputados  = diputados;
+        this.diputados  = 0;
         
     }
 
@@ -48,9 +48,9 @@ public class Partido {
         this.siglas = siglas;
     }
 
-//    public void setDiputados(int diputados) {
-//        this.diputados = diputados;
-//    }
+    public void setDiputados(int diputados) {
+        this.diputados = diputados;
+    }
         public void setVotos(int votos) {
         this.votos = votos;
     }

@@ -10,31 +10,33 @@ import java.util.ArrayList;
  *
  * @author Carlos Ricardo Medina Rojas
  */
-public class Eleccion extends Partido {
+public class Eleccion  {
 
-    static ArrayList<Partido> partido = new ArrayList<Partido>();
+    static ArrayList<Partido>  partido = new ArrayList<Partido>();
     static int partidosPoliticos;
-    int diputadosTotales;
+    static int diputadosTotales;
     
 
-    public Eleccion(int diputadosTotales, int votos, String nombre, String siglas) {
-        super(nombre, siglas, votos);
+    public Eleccion() {
+
         this.diputadosTotales = diputadosTotales;
-        this.partido.add(this);
-        partidosPoliticos ++;
+
+       
 
     }
 
-    public void agregarPartido(String nombre, String siglas, int votos) {
+    public static void agregarPartido(String nombre, String siglas, int votos) {
         Partido partido = new Partido(nombre, siglas, votos);
-        this.partido.add(partido);
+        Eleccion.partido.add(partido);
         System.out.println("Partido " + " " + partido.getNombre() + " " + "ha sido creado");
+         partidosPoliticos ++;
+         System.out.println("Tenemos "+partidosPoliticos+" partido(s) Registrado(s)");
 
     }
     
     public void asignarDiputadosDhont(){
         
-        Stream str = this.partido.stream().max( a ,  b)->{Integer.compare( (Integer)a.getVotos(),(Integer)b.getVotos())};
+       // Stream str = this.partido.stream().max( a ,  b)->{Integer.compare( (Integer)a.getVotos(),(Integer)b.getVotos())};
         
         
     }
@@ -47,6 +49,12 @@ public class Eleccion extends Partido {
             }
         });
 
+    }
+    public static String getNombrePartido(){
+        String nombre="";
+        nombre = partido.get(partidosPoliticos).getNombre();
+        
+        return  nombre;
     }
         public void populatePartido() {
         this.partido.forEach(element -> {
